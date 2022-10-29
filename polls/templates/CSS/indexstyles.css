@@ -1,0 +1,587 @@
+body {
+  background-image: url(/Resources/Images/map.png);
+  background-repeat: no-repeat;
+  background-size: 100rem;
+  background-position: 50% 1%;
+}
+
+.landingimg {
+  width: 25rem;
+  margin-top: 1.5rem;
+  margin-right: 7.5rem;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: 7.5rem;
+  margin-top: 4rem;
+}
+
+.subcontainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-right: 20%;
+}
+
+.title {
+  font-family: europalight;
+  font-size: 6rem;
+}
+
+.losr {
+  font-family: europabold;
+}
+
+.date{
+  font-family: europaregular;
+  font-size: 2.2rem;
+  color: #09A085;
+  margin-top: -6rem;
+}
+
+.subsubcontainer{
+  display: flex;
+  flex-direction: row;
+  margin-left: -2rem;
+}
+
+.btn {
+  font-family: europaregular;
+  width: 10rem;
+  height: 2.6rem;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #d3d3d3;
+  transition: 0.5s;
+  margin-left: 2rem;
+}
+
+.btn:hover{
+  background: #09A085;
+  border: #09A085;
+  color: white;
+  transition: 0.5s;
+}
+
+@media (max-width: 1590px) {
+  .landingimg{
+    width: 20rem;
+  }
+  .title{
+    font-size: 5rem;
+  }
+  .date{
+    font-size: 2rem;
+    margin-top: -5rem;
+  }
+  }
+
+  @media (max-width: 1035px) {
+
+    .container{
+      margin-top: 1rem;
+    }
+    .landingimg{
+      width: 16rem;
+    }
+    .title{
+      font-size: 4rem;
+    }
+    .date{
+      font-size: 1.6rem;
+      margin-top: -4rem;
+    }
+
+    body{
+      background-position: 50% 1%;
+      background-size: 70rem;
+    }
+
+    .subcontainer{
+      margin-right: -6rem;
+    }
+    }
+
+    @media (max-width: 800px) {
+
+      .container{
+        margin-top: 1rem;
+      }
+      .landingimg{
+        width: 16rem;
+      }
+
+      .subsubcontainer{
+        flex-direction: column;
+        margin-top: 0rem;
+      }
+      .btn{
+        margin-top: 0.5rem;
+      }
+
+      body{
+        background-position: 50% 1%;
+      }
+      }
+
+
+@media (max-width: 700px) {
+
+      .container{
+        margin-top: 1rem;
+      }
+
+      .landingimg{
+        display: none;
+      }
+
+      .subsubcontainer{
+        flex-direction: row;
+        margin-top: 0rem;
+      }
+
+      body{
+        background-position: 50% 1.5%;
+        background-size: 50rem;
+      }
+      }
+
+@media (max-width: 640px) {
+
+      .container{
+        margin-left: 1.6rem;
+        margin-top: 0rem;
+        margin-right: 0rem;
+      }
+      .subcontainer{
+        margin-right: 0rem;
+      }
+
+      }
+
+@media (max-width: 550px) {
+
+      .container{
+        margin-left: 1.6rem;
+        margin-top: 0rem;
+        margin-right: 0rem;
+      }
+      .subcontainer{
+        margin-right: 0rem;
+      }
+
+      .title{
+        font-size: 3rem;
+      }
+      .date{
+        font-size: 1.2rem;
+        margin-top: -3rem;
+      }
+      .btn{
+        width: 6rem;
+        height: 2rem;
+        margin-left: 1rem;
+        font-size: 0.7rem;
+      }
+      .subsubcontainer{
+        margin-left: -1rem;
+      }
+
+      }
+
+.container2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 10rem;
+  margin-left: 7.5rem;
+}
+
+.suncontainer2{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.aboutus{
+  font-family: europabold;
+  color: #777777;
+}
+
+.subsubcontainer2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.line{
+  width: 8rem;
+  height: 0.2rem;
+  background: #777777;
+  border: none;
+  margin-left: 1.3rem;
+  margin-top: 1.55rem;
+}
+
+.quote{
+  font-family: europaregular;
+  font-size: 3rem;
+  margin-top: 0rem;
+}
+
+.info{
+  font-family: europaregular;
+  font-size: 1.2rem;
+  padding-right: 15rem;
+  margin-top: -1.6rem;
+}
+
+.btn2{
+  font-family: europaregular;
+  width: 12rem;
+  height: 2.6rem;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #d3d3d3;
+  transition: 0.5s;
+}
+
+.btn2:hover{
+  background: #09A085;
+  border: #09A085;
+  color: white;
+  transition: 0.5s;
+}
+
+.imagesmh{
+  height: 40rem;
+  padding-right: 6rem;
+  border-radius: 0rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1600px) {
+  .imagesmh{
+    height:30rem;
+  }
+  .info{
+    padding-right: 5rem;
+  }
+
+  .info{
+    font-size: 1.1rem;
+  }
+
+}
+
+@media (max-width: 1320px) {
+  .imagesmh{
+    display: none;
+  }
+  .info{
+    padding-right: 5rem;
+  }
+
+  .info{
+    font-size: 1.1rem;
+  }
+  .btn2{
+    margin-top: 1rem;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .container2{
+    margin-left: 1.6rem;
+    margin-top: 8rem;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .quote{
+    font-size: 2rem;
+  }
+  .line{
+    width: 5rem;
+  }
+
+  .info{
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 400px) {
+  
+
+  .info{
+    padding-right: 2rem;
+  }
+
+}
+
+.container3{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 8rem;
+  margin-left: 7.5rem;
+}
+.subcontainer3{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.line2{
+  width: 8rem;
+  height: 0.2rem;
+  background: #777777;
+  border: none;
+  margin-left: 1.3rem;
+  margin-top: 1.55rem;
+}
+
+.name{
+  font-family: europabold;
+  color: #777777;
+}
+
+.work{
+  font-family: europaregular;
+  font-size: 3rem;
+  margin-top: 0rem;
+}
+
+.gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 45px;
+}
+
+.imageimg{
+  width: 26rem;
+  border-radius: 0.6rem;
+  transition: 0.5s;
+}
+
+.imageimg:hover{
+  -webkit-box-shadow: 0px 0px 57px -3px rgba(102,152,238,0.64);
+  -moz-box-shadow: 0px 0px 57px -3px rgba(102,152,238,0.64);
+  box-shadow: 0px 0px 57px -3px rgba(102,152,238,0.64);
+  transition: 0.5s;
+}
+
+@media (max-width: 1015px) {
+  
+  .imageimg{
+    width: 20rem;
+  }
+  .gallery{
+    gap: 35px;
+  }
+
+}
+
+@media (max-width: 640px) {
+  
+  .container3{
+    margin-left: 1.6rem;
+  }
+
+}
+
+@media (max-width: 500px) {
+  
+  .work{
+    font-size: 2rem;
+  }
+
+  .line2{
+    width: 5rem;
+  }
+
+}
+
+@media (max-width: 360px) {
+  
+  .imageimg{
+    width: 15rem;
+    border-radius: 0.4rem;
+  }
+  .gallery{
+    gap: 20px;
+  }
+
+}
+
+.container4{
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: 7.5rem;
+}
+
+.subcontainer4{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.subsubcontainer4{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.contactus{
+  font-family: europabold;
+  color: #777777;
+}
+
+.line3{
+  width: 8rem;
+  height: 0.2rem;
+  background: #777777;
+  border: none;
+  margin-left: 1.3rem;
+  margin-top: 1.55rem;
+}
+
+.help{
+  font-family: europaregular;
+  font-size: 3rem;
+  margin-top: 0rem;
+}
+
+.helpinfo{
+  font-family: europaregular;
+  font-size: 1.2rem;
+  padding-right: 15rem;
+  margin-top: -1.6rem;
+  padding-right: 5rem;
+}
+
+.btn3{
+  font-family: europaregular;
+  width: 10rem;
+  height: 2.6rem;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #d3d3d3;
+  transition: 0.5s;
+}
+
+.btn3:hover{
+  background: #09A085;
+  border: #09A085;
+  color: white;
+  transition: 0.5s;
+}
+
+.insta{
+  margin-top: -10rem;
+}
+
+@media (max-width: 1000px) {
+
+  .insta{
+    height: 30rem;
+    margin-top: -4rem;
+  }
+  
+  
+
+}
+
+@media (max-width: 800px) {
+
+  .insta{
+    display: none;
+  }
+  
+  
+
+}
+
+@media (max-width: 640px) {
+
+  .container4{
+    margin-left: 1.6rem;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .help{
+    font-size: 2rem;
+  }
+  .helpinfo{
+    font-size: 1rem;
+  }
+
+}
+
+#demo {
+  font-family: europaregular;
+  width: 348px;
+  text-align: center;
+  background: white;
+  border: 1.5px solid #d3d3d3;
+  padding: 17px 0 17px 0;
+  border-radius: 0.5rem;
+}
+
+
+@media (max-width: 800px) {
+
+  #demo {
+    font-family: europaregular;
+    width: 160px;
+    font-size: 0.9rem;
+    text-align: center;
+    border: 1.5px solid #d3d3d3;
+    padding: 18px 0 18px 0;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  #demo {
+    font-family: europaregular;
+    width: 348px;
+    font-size: 0.9rem;
+    text-align: center;
+    border: 1.5px solid #d3d3d3;
+    padding: 18px 0 18px 0;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  #demo {
+    font-family: europaregular;
+    width: 205px;
+    font-size: 0.8rem;
+    text-align: center;
+    border: 1.5px solid #d3d3d3;
+    padding: 15px 0 15px 0;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+  }
+
+}

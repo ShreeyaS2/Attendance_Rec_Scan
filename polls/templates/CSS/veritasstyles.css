@@ -1,0 +1,139 @@
+.container{
+    margin-left: 7.5rem;
+    margin-top: 4rem;
+}
+
+.quote{
+    font-family: europaregular;
+    font-size: 3.5rem;
+}
+
+.subcontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.smth{
+    font-family: europabold;
+    color: #2b2b2b;
+    margin-top: -2.5rem;
+    font-size: 1.2rem;
+}
+
+.line{
+    width: 10rem;
+    margin-left: 1rem;
+    margin-top: -1.75rem;
+    height: 0.2rem;
+    background: #6699EE;
+    border: none;
+}
+
+.info{
+    font-family: europaregular;
+    margin-top: 0rem;
+    padding-right: 5rem;
+}
+
+.gallery{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+.subgallery{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.losr{
+    width: 16rem;
+    transition: 0.5s;
+    border-radius: 1rem;
+}
+
+.subsubgallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.imo{
+    font-family: europabold;
+    color: #6699EE; 
+    font-size: 1.3rem;
+}
+
+.line2{
+    width: 8rem;
+    height: 0.25rem;
+    background: #6699EE;
+    border: none;
+    margin-top: 1.9rem;
+    margin-left: 1.4rem;
+    
+}
+
+.losr:hover{
+    -webkit-box-shadow: 0px 0px 57px -3px rgba(102,152,238,0.64);
+    -moz-box-shadow: 0px 0px 57px -3px rgba(102,152,238,0.64);
+    box-shadow: 0px 0px 57px -3px rgba(102,152,238,0.64);
+    transition: 0.5s;
+
+}
+
+@media (max-width: 950px) {
+  
+    .quote{
+        font-size: 3rem;
+        padding-right: 5rem;
+    }
+  
+}
+
+@media (max-width: 640px) {
+  
+    .container{
+        margin-left: 1.6rem;
+    }
+
+    .gallery{
+        margin-right: 2rem;
+        gap: 50px;
+    }
+  
+}
+
+@media (max-width: 490px) {
+  
+    .quote{
+        font-size: 2.5rem;
+    }
+    .subcontainer{
+        margin-top: 3rem;
+    }
+    .smth{
+        font-size: 1rem;
+    }
+  
+}
+
+@media (max-width: 422px) {
+  
+    .line{
+        width: 6rem;
+    }
+  
+}
+
+@media (max-width: 345px) {
+  
+    .line{
+        width: 5rem;
+    }
+  
+}

@@ -1,0 +1,111 @@
+{% block content %}
+
+<style>
+    body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+.left {
+    width: 50%;
+    left: 0;
+    background-color: white;
+}
+
+.right {
+    width: 50%;
+    right: 0;
+    background-color: white;
+  }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(243, 243, 243);
+  }
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(243, 243, 243);
+}
+
+button {
+    background-color: #09A085;
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#id_email {
+    width: 100%;
+    height: 40px;
+}
+
+#id_password {
+  width: 100%;
+  height: 40px;
+}
+.pulse {
+  animation: pulse 1s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+  from { transform: scale(0.8); }
+  to { transform: scale(1.2); }
+}
+
+</style>
+
+<div class="container" style="background-color: wheat;">
+    <div class="split left">
+        <div class="centered">
+          <img class="pulse"src="https://cdn.dribbble.com/users/524635/screenshots/5519659/tattoowomen-01_4x.png?compress=1&resize=400x300" alt="">
+        </div>
+      </div>
+      
+      <div class="split right">
+        <div class="centered">
+          <h2 style="font-size: 25px;">Sign Up for Free</h2>
+          <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 15px">By clicking 
+              <span style="color: rgb(132, 132, 132)">Sign In</span>, I agree to the 
+              <span style="color: rgb(132, 132, 132)">Terms of Service</span>
+              and 
+              <span style="color: rgb(132, 132, 132)">Privacy Policy</span>.</p>
+            <button type="submit" value="submit">Sign Up for Free</button>
+          </form>
+        </div>
+      </div>
+</div>
+{% endblock %}

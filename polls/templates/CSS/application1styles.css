@@ -1,0 +1,271 @@
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 2%; 
+    border: 0.01rem solid #ccc;
+    border-radius: 0.5rem; 
+    box-sizing: border-box; 
+    margin-top: 1.5%; 
+    margin-bottom: 3%; 
+    resize: vertical 
+  }
+  
+  .tab {
+    display: none;
+  }
+  
+  /* Make circles that indicate the steps of the form: */
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  /* Mark the active step: */
+  .step.active {
+    opacity: 1;
+  }
+
+  #nextBtn button{
+    width: 20rem;
+    background-color: #09A085;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #04AA6D;
+  }
+
+  
+  input[type=number], select, textarea {
+    width: 100%;
+    padding: 2%; 
+    border: 0.01rem solid #ccc;
+    border-radius: 0.5rem; 
+    box-sizing: border-box; 
+    margin-top: 1.5%; 
+    margin-bottom: 3%; 
+    resize: vertical 
+  }
+  
+  input[type=email], select, textarea {
+  width: 100%;
+  padding: 2%; 
+  border: 0.01rem solid #ccc;
+  border-radius: 0.5rem; 
+  box-sizing: border-box; 
+  margin-top: 1.5%; 
+  margin-bottom: 3%; 
+  resize: vertical 
+  }
+  
+  input[type=submit] {
+    background-color: #09A085;
+    color: white;
+    padding: 20% 35%;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;;
+    transition: 0.3s;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #3377ec;
+    transition: 0.3s;
+  }
+  
+  .container {
+    border-radius: 2rem;
+    background-color: #eaeaea;
+    padding: 2%;
+    height: 110%;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  input[type=text], select, textarea {
+  
+    font-family: europaregular;
+  
+  }
+  
+  .descpara {
+    font-family: europaregular;
+    text-align: center;
+  }
+  
+  .contact{
+    font-family: europaregular;
+    text-align: center;
+    font-size: 2vw;
+    margin-top: -36%;
+  }
+  
+  .contactus{
+    text-align: center;
+    font-size: 1.6vw;
+    font-family: europaregular;
+  }
+  
+  button {
+    border-color: transparent;
+    background-color: transparent;
+  }
+  
+  .staff-title a{
+  margin-top: 1rem;
+  margin-left: 4.5rem;
+  font-family: europaregular;
+  text-decoration: none;
+  }
+  
+  .container {
+  margin-top: 4%;
+  width: 60%;
+  }
+  
+  .squarestaff {
+  height: 26rem;
+  width: 18rem;
+  border-radius: 2rem;
+  margin-top: 12rem;
+  margin-left: -16rem;
+  background-color: #eaeaea;
+  
+  }
+  
+  .grid { 
+  margin-top: 42%;
+  margin-left: 2%;
+  display: block;
+  }
+  
+  #grid {
+  display: block;
+  }
+  
+  .contact-form {
+  margin-top: -29rem;
+  }
+  
+  #submitmsg {
+  display: none;
+  
+  
+  }
+  .submitmsg {
+  font-family: europabold;
+  text-align: center;
+  margin-top: 10%;
+  font-size: 2vw;
+  }
+  
+  
+  @media (max-width: 1110px) {
+  .grid {
+    margin-top: 50%;
+  }
+  
+  @media (max-width: 965px) {
+  .grid {
+    margin-top: 55%;
+  }
+  
+  @media (max-width: 863px) {
+  .grid {
+    margin-top: 60%;
+  }
+  
+  @media (max-width: 863px) {
+  .grid {
+    margin-top: 65%;
+  }
+  
+  @media (max-width: 743px) {
+  .grid {
+    margin-top: 70%;
+  }
+  
+  @media (max-width: 686px) {
+  .grid {
+    margin-top: 75%;
+  }
+  
+  @media (max-width: 650px) {
+  .grid {
+    margin-top: 80%;
+  }
+  
+  @media (max-width: 607px) {
+  .grid {
+    margin-top: 85%;
+  }
+  @media (max-width: 569px) {
+  .grid {
+    margin-top: 90%;
+  }
+  
+  @media (max-width: 544px) {
+  .grid {
+    margin-top: 100%;
+  }
+  @media (max-width: 490px) {
+  .grid {
+    margin-top: 110%;
+  }
+  
+  @media (max-width: 449px) {
+  .grid {
+    margin-top: 120%;
+  }
+  
+  @media (max-width: 415px) {
+  .grid {
+    margin-top: 130%;
+  }
+  }
+  
+  @media (max-width: 380px) {
+  .grid {
+    margin-top: 130%;
+  
+  }
+  
+  .container {
+    padding: 1rem; 
+  }
+  
+  
+  .title img {
+    display: none;
+  }
+  }
+  
+  @media (max-width: 380px) {
+  .grid {
+    margin-top: 145%;
+  }
+  }
+  
+  @media (max-width: 340px) {
+  .grid {
+    margin-top: 160%;
+  }
+  }
+  
+  @media (max-width: 300px) {
+  .grid {
+    margin-top: 180%;
+  }
+  }
+  @media (max-width: 270px) {
+  .grid {
+    margin-top: 200%;
+  }
+}

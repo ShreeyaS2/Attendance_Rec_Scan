@@ -1,0 +1,345 @@
+.title {
+    margin-left: 7.5rem;
+    font-family: europabold;
+    letter-spacing: -2px;
+    font-size: 350%;
+    color: #2b2b2b;
+    margin-top: -1rem;
+    margin-right: 7.5rem;
+}
+.titleinfo {
+    margin-left: 7.5rem;
+    margin-right: 7rem;
+    font-family: europaregular;
+    font-size: 125%;
+    color: #464646;
+    margin-top: -2rem;
+    padding-right: 30rem;
+}
+
+.idkman {
+    font-family: europabold;
+    color: #2b2b2b;
+}
+
+@media (max-width: 1700px) {
+
+    .titleinfo{
+        padding-right: 10rem ;
+    }
+  }
+
+  @media (max-width: 1130px) {
+
+    .titleinfo{
+        padding-right: 0rem ;
+    }
+  }
+
+@media (max-width: 900px) {
+
+    .title{
+        font-size: 250%;
+    }
+    .titleinfo{
+        margin-top: -2.2rem;
+        font-size: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    .title{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .titleinfo{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+  }
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 3.5rem;
+}
+
+.subcontainer {
+    margin-top: 4rem;
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 500px;
+    width: 330px;
+    border: 2px solid #cbcbcb;
+    border-radius: 0.2rem;
+    padding-left: 2rem;
+    padding-right: 2.4rem;
+}
+
+.line{
+    margin-top: -0.1rem;
+    background: #09A085;
+    height: 0.2rem;
+    width: 9.5rem;
+    margin-left: 0.4rem;
+    border: none;
+}
+
+.icon{
+    height: 10rem;
+    margin-left: 0rem;
+    margin-top:1.5rem
+}
+
+
+.arrow{
+    width: 45px;
+    height: 45px;
+    margin-left: 8rem;
+    margin-top: 0.5rem;
+}
+
+.name {
+    font-family: europabold;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    color: #2b2b2b;
+}
+
+.desc {
+    font-family: europaregular;
+    font-size: 1.05rem;
+    color: #676767;
+    margin-top: -2rem;
+}
+
+.singleaf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.content{
+    font-size: 1.2rem;
+    font-family: europaregular;
+    color: #09A085;
+}
+
+.content2 {
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    font-family: europaregular;
+    color: #09A085;
+}
+
+.name2{
+    font-family: europabold;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    color: #2b2b2b;
+}
+
+.desc2 {
+    font-family: europaregular;
+    font-size: 1.05rem;
+    color: #676767;
+    margin-top: -1.5rem;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+#back1{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine1{
+    animation: fadeIn 1s;
+}
+
+#back2{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine2{
+    animation: fadeIn 1s;
+}
+
+#back3{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine3{
+    animation: fadeIn 1s;
+}
+
+#back4{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine4{
+    animation: fadeIn 1s;
+}
+
+#back5{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine5{
+    animation: fadeIn 1s;
+}
+
+#back6{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine6{
+    animation: fadeIn 1s;
+}
+
+#back7{
+    animation: fadeIn 1s;
+    display: none;
+}
+
+#imagine7{
+    animation: fadeIn 1s;
+}
+
+.subcont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.arrow2{
+    width: 45px;
+    height: 45px;
+    margin-top: 2.3rem;
+}
+
+
+
+@media (max-width: 640px) {
+
+    .container{
+        margin-left: -3rem;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .subcontainer{
+        height: 520px;
+        width: 230px;
+    }
+    .icon{
+        height: 8rem;
+    }
+    .name{
+        font-size: 2rem;
+    }
+    .desc{
+        font-size: 0.9rem;
+    }
+    .content{
+        font-size: 1rem;
+    }
+    .content2{
+        font-size: 1rem;
+    }
+    .arrow{
+        margin-left: 4rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    .name2{
+        font-size: 2rem;
+    }
+    .desc2{
+        font-size: 0.9rem;
+    }
+    .arrow2{
+        width: 30px;
+        height: 30px;
+        margin-top: 2.5rem;
+    }
+    .line{
+        width: 7rem;
+    }
+}
+
+@media (max-width: 340px) {
+
+    .subcontainer{
+        height: 520px;
+        width: 130px;
+    }
+    .icon{
+        margin-top: 0.4rem;
+        height: 5rem;
+    }
+    .name{
+        font-size: 1.5rem;
+        margin-top: 0.2rem;
+    }
+    .desc{
+        font-size: 0.7rem;
+        margin-top: -1.4rem;
+    }
+    .content{
+        font-size: 0.8rem;
+    }
+    .content2{
+        font-size: 0.8rem;
+        margin-left: 0rem;
+        margin-top: 0rem;
+    }
+    .arrow{
+        margin-left: 6rem;
+        width: 30px;
+        height: 30px;
+        margin-top: -3rem;
+    }
+
+    .name2{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+    .desc2{
+        margin-top: -1.5rem;
+        font-size: 0.7rem;
+    }
+    .arrow2{
+        width: 30px;
+        height: 30px;
+        margin-top: 1.15rem;
+    }
+    .singleaf{
+        flex-direction: column;
+    }
+
+    .line{
+        width: 5rem;
+    }
+
+}
+
+
