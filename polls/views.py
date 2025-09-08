@@ -13,6 +13,9 @@ from django.template import loader
 def thanks(request):
     return render(request, "index.html")
 
+def conf(request):
+    return render(request, "confirmation.html")
+
 def stat(request):
     return render(request, "statistics.html")
     
@@ -67,11 +70,12 @@ def form(request):
 def polls(request):
     if request.method == "POST":
         form = SignForm(request.POST)
-        username = request.POST["username"]
+        name = request.POST["name"]
+        perm_id=request.POST["perm_id"]
         password = request.POST["password"]
-        data = Sign(username = username, password = password)
+        data = Sign(name = name, perm_id=perm_id, password = password)
         data.save()
-        return HttpResponseRedirect('form.html')
+        return HttpResponseRedirect('confirmation.html')
     
     else:
         form = SignForm()

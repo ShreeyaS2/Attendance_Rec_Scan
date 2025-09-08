@@ -1,111 +1,294 @@
 {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-    body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-.split {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-.left {
-    width: 50%;
-    left: 0;
-    background-color: white;
-}
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 20px 20px 0 0;
+        }
 
-.right {
-    width: 50%;
-    right: 0;
-    background-color: white;
-  }
+        .logo-container {
+            margin-bottom: 30px;
+        }
 
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(102, 126, 234, 0.2);
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+        }
 
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(243, 243, 243);
-  }
+        .logo:hover {
+            transform: scale(1.05);
+        }
 
-input[type=password], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(243, 243, 243);
-}
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
 
-button {
-    background-color: #09A085;
-    width: 100%;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
 
-#id_email {
-    width: 100%;
-    height: 40px;
-}
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
 
-#id_password {
-  width: 100%;
-  height: 40px;
-}
-.pulse {
-  animation: pulse 1s infinite ease-in-out alternate;
-}
-@keyframes pulse {
-  from { transform: scale(0.8); }
-  to { transform: scale(1.2); }
-}
+        form {
+            text-align: left;
+        }
 
-</style>
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-<div class="container" style="background-color: wheat;">
-    <div class="split left">
-        <div class="centered">
-          <img class="pulse"src="https://cdn.dribbble.com/users/524635/screenshots/5519659/tattoowomen-01_4x.png?compress=1&resize=400x300" alt="">
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group input:hover {
+            border-color: #c1c8cd;
+        }
+
+        .terms-text {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .terms-text a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Form field animations */
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input:focus + .form-focus-line,
+        .form-group input:valid + .form-focus-line {
+            transform: scaleX(1);
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 3.5s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo-container">
+            <img class="logo" src="https://cdn.dribbble.com/users/524635/screenshots/5519659/tattoowomen-01_4x.png?compress=1&resize=400x300" alt="Logo">
         </div>
-      </div>
-      
-      <div class="split right">
-        <div class="centered">
-          <h2 style="font-size: 25px;">Sign Up for Free</h2>
-          <form method="POST" action="">
+        
+        <h2>Sign Up for Free</h2>
+        <p class="subtitle">Join our community today</p>
+        
+        <form method="POST" action="">
             {% csrf_token %}
-            {{ form.as_p }}
-            <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 15px">By clicking 
+            {{form.as_p}}
+        <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 15px">By clicking 
               <span style="color: rgb(132, 132, 132)">Sign In</span>, I agree to the 
               <span style="color: rgb(132, 132, 132)">Terms of Service</span>
               and 
               <span style="color: rgb(132, 132, 132)">Privacy Policy</span>.</p>
             <button type="submit" value="submit">Sign Up for Free</button>
           </form>
-        </div>
-      </div>
-</div>
+</body>
+</html>
 {% endblock %}
