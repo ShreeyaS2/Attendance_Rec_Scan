@@ -2,7 +2,7 @@ from email.policy import default
 from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
-import face_recognition
+#import face_recognition
 import numpy as np
 import json
 from PIL import Image
