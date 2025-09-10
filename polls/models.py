@@ -14,7 +14,7 @@ class Sign(models.Model):
     name = models.CharField(max_length=25)
     perm_id = models.CharField(max_length=300, default='')
     department = models.CharField(max_length=200, default='')
-    email = models.EmailField(max_length=10, default='')
+    email = models.EmailField(max_length=100, default='')
     password = models.CharField(max_length=200)
     image= models.ImageField(upload_to='images/')
 
