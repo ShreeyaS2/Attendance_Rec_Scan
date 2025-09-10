@@ -73,7 +73,8 @@ def polls(request):
         name = request.POST["name"]
         perm_id=request.POST["perm_id"]
         password = request.POST["password"]
-        data = Sign(name = name, perm_id=perm_id, password = password)
+        image=request.FILES.get('image')
+        data = Sign(name = name, perm_id=perm_id, password = password, image=image)
         data.save()
         return HttpResponseRedirect('confirmation.html')
     

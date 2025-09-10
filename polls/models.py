@@ -16,6 +16,7 @@ class Sign(models.Model):
     department = models.CharField(max_length=200, default='')
     email = models.EmailField(max_length=10, default='')
     password = models.CharField(max_length=200)
+    image= models.ImageField(upload_to='images/')
 
     def __str__(self) -> str:
         return self.name
@@ -31,6 +32,9 @@ class Sign(models.Model):
 
     def __str__(self) -> str:
         return self.password
+    
+    def __str__(self) -> str:
+        return str(self.image)
 
 class Log(models.Model):
     username = models.CharField(max_length=25)

@@ -8,10 +8,11 @@ class SignForm(forms.ModelForm):
     department = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Department'}), label="")
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'}), label="")
     password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), label="")
+    image = forms.ImageField(label="Upload Image")
 
     class Meta():
         model = Sign
-        fields = ["name", "perm_id", "department", "email", "password"]
+        fields = ["name", "perm_id", "department", "email", "password", "image"]
         
 class LogForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}), label="")
