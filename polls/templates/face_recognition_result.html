@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+
+        .status-success {
+            background: rgba(34, 197, 94, 0.1);
+            color: #059669;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .status-info {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .status-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+            border: 2px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .student-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .student-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #22c55e, #3b82f6);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .student-info h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .student-info h3::before {
+            content: '👤';
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .confidence-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e, #3b82f6);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .no-results h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .no-results p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .stats-summary {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-summary {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Face Recognition Results</h1>
+            <p>Registration successful! Here are the recognition results:</p>
+            
+            {% if recognized_students %}
+                <div class="status-indicator status-success">
+                    ✅ Recognition Completed Successfully
+                </div>
+            {% else %}
+                <div class="status-indicator status-warning">
+                    ⚠️ No faces detected or recognized
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="stats-summary">
+            <div class="stat-item">
+                <span class="stat-number">{{ recognized_students|length }}</span>
+                <div class="stat-label">Students Recognized</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ total_students }}</span>
+                <div class="stat-label">Total Registered</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">
+                    {% if total_students > 0 %}
+                        {{ recognized_students|length|floatformat:0 }}%
+                    {% else %}
+                        0%
+                    {% endif %}
+                </span>
+                <div class="stat-label">Recognition Rate</div>
+            </div>
+        </div>
+
+        {% if recognized_students %}
+            <div class="results-grid">
+                {% for student in recognized_students %}
+                    <div class="student-card">
+                        <div class="student-info">
+                            <h3>{{ student.name }}</h3>
+                            
+                            <div class="info-row">
+                                <span class="info-label">🎓 Roll Number:</span>
+                                <span class="info-value">{{ student.roll }}</span>
+                            </div>
+                            
+                            {% if student.email != "N/A" %}
+                            <div class="info-row">
+                                <span class="info-label">📧 Email:</span>
+                                <span class="info-value">{{ student.email }}</span>
+                            </div>
+                            {% endif %}
+                            
+                            {% if student.department != "N/A" %}
+                            <div class="info-row">
+                                <span class="info-label">🏢 Department:</span>
+                                <span class="info-value">{{ student.department }}</span>
+                            </div>
+                            {% endif %}
+                            
+                            <div class="info-row">
+                                <span class="info-label">🎯 Confidence:</span>
+                                <span class="info-value">{{ student.confidence|floatformat:1 }}%</span>
+                            </div>
+                            
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" style="width: {{ student.confidence|default:'0' }}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-results">
+                <h3>🔍 No Students Recognized</h3>
+                <p>The face recognition system didn't detect any registered students in the camera feed. This could happen if:</p>
+                <ul style="text-align: left; margin: 20px auto; max-width: 500px;">
+                    <li>No camera was available</li>
+                    <li>No faces were detected in the frame</li>
+                    <li>The lighting conditions were not optimal</li>
+                    <li>The registered images need better quality</li>
+                </ul>
+            </div>
+        {% endif %}
+
+        <div class="actions">
+            <a href="/" class="btn btn-primary">Register Another Student</a>
+            <button onclick="window.location.reload()" class="btn btn-secondary">Retry Recognition</button>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate confidence bars
+            const confidenceBars = document.querySelectorAll('.confidence-fill');
+            confidenceBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+
+            // Add loading state if needed
+            const retryBtn = document.querySelector('.btn-secondary');
+            if (retryBtn) {
+                retryBtn.addEventListener('click', function() {
+                    this.innerHTML = '<div class="spinner" style="width: 20px; height: 20px; margin: 0 auto;"></div>';
+                    this.disabled = true;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
